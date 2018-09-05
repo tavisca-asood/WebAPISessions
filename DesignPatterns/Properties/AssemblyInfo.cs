@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Shopping Cart")]
+[assembly: AssemblyTitle("DesignPatterns")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Shopping Cart")]
+[assembly: AssemblyProduct("DesignPatterns")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("f44a5c5b-0845-4aec-9656-0bb47b8cfbc1")]
+[assembly: Guid("19e76e77-f6ce-4962-a2eb-c9997e2d1faf")]
 
 // Version information for an assembly consists of the following four values:
 //

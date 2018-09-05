@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cart
+namespace DesignPatterns
 {
-    interface ICheckout
+    interface IProduct
     {
-        void GetPaymentMode();
-        void GetAddress();
+        string TypeOfProduct();
+        void Save();
+        void Book();
     }
 }
