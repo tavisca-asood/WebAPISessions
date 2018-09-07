@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="InventoryDatabaseModelStoreContainer" CdmEntityContainer="InventoryDatabaseEntities">
+    <EntitySetMapping Name="ActivityInventories">
+      <EntityTypeMapping TypeName="InventoryDatabaseModel.ActivityInventory">
+        <MappingFragment StoreEntitySet="ActivityInventory">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+          <ScalarProperty Name="Booked" ColumnName="Booked" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AirInventories">
+      <EntityTypeMapping TypeName="InventoryDatabaseModel.AirInventory">
+        <MappingFragment StoreEntitySet="AirInventory">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Departure" ColumnName="Departure" />
+          <ScalarProperty Name="Arrival" ColumnName="Arrival" />
+          <ScalarProperty Name="Booked" ColumnName="Booked" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CarInventories">
+      <EntityTypeMapping TypeName="InventoryDatabaseModel.CarInventory">
+        <MappingFragment StoreEntitySet="CarInventory">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Booked" ColumnName="Booked" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HotelInventories">
+      <EntityTypeMapping TypeName="InventoryDatabaseModel.HotelInventory">
+        <MappingFragment StoreEntitySet="HotelInventory">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Booked" ColumnName="Booked" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

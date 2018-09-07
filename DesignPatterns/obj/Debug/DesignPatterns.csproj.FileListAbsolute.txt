@@ -1,0 +1,12 @@
+C:\Users\asood\source\repos\DesignPatterns\DesignPatterns\bin\Debug\DesignPatterns.exe.config
+C:\Users\asood\source\repos\DesignPatterns\DesignPatterns\bin\Debug\DesignPatterns.exe
+C:\Users\asood\source\repos\DesignPatterns\DesignPatterns\bin\Debug\DesignPatterns.pdb
+C:\Users\asood\source\repos\DesignPatterns\DesignPatterns\obj\Debug\DesignPatterns.csprojAssemblyReference.cache
+C:\Users\asood\source\repos\DesignPatterns\DesignPatterns\obj\Debug\DesignPatterns.csproj.CoreCompileInputs.cache
+C:\Users\asood\source\repos\DesignPatterns\DesignPatterns\obj\Debug\DesignPatterns.exe
+C:\Users\asood\source\repos\DesignPatterns\DesignPatterns\obj\Debug\DesignPatterns.pdb
+C:\Users\asood\source\repos\DesignPatterns\DesignPatterns\bin\Debug\EntityFramework.dll
+C:\Users\asood\source\repos\DesignPatterns\DesignPatterns\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\asood\source\repos\DesignPatterns\DesignPatterns\bin\Debug\EntityFramework.xml
+C:\Users\asood\source\repos\DesignPatterns\DesignPatterns\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\asood\source\repos\DesignPatterns\DesignPatterns\obj\Debug\DesignPatterns.csproj.CopyComplete

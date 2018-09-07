@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="InventoryDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ActivityProducts">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Price" Type="float" />
+    <Property Name="StartTime" Type="time" Precision="7" />
+    <Property Name="Booked" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AirProducts">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Price" Type="float" />
+    <Property Name="Departure" Type="date" />
+    <Property Name="Arrival" Type="date" />
+    <Property Name="Booked" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CarProducts">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Price" Type="float" />
+    <Property Name="Booked" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HotelProducts">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Location" Type="varchar" MaxLength="100" />
+    <Property Name="Rating" Type="float" />
+    <Property Name="Price" Type="float" />
+    <Property Name="Booked" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="InventoryDatabaseModelStoreContainer">
+    <EntitySet Name="ActivityProducts" EntityType="Self.ActivityProducts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AirProducts" EntityType="Self.AirProducts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CarProducts" EntityType="Self.CarProducts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HotelProducts" EntityType="Self.HotelProducts" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

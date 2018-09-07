@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="InventoryDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ActivityInventory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Price" Type="Double" />
+    <Property Name="StartTime" Type="Time" Precision="7" />
+    <Property Name="Booked" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AirInventory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Price" Type="Double" />
+    <Property Name="Departure" Type="DateTime" Precision="0" />
+    <Property Name="Arrival" Type="DateTime" Precision="0" />
+    <Property Name="Booked" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CarInventory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Price" Type="Double" />
+    <Property Name="Booked" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HotelInventory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Location" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Rating" Type="Double" />
+    <Property Name="Price" Type="Double" />
+    <Property Name="Booked" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="InventoryDatabaseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ActivityInventories" EntityType="Self.ActivityInventory" />
+    <EntitySet Name="AirInventories" EntityType="Self.AirInventory" />
+    <EntitySet Name="CarInventories" EntityType="Self.CarInventory" />
+    <EntitySet Name="HotelInventories" EntityType="Self.HotelInventory" />
+  </EntityContainer>
+</Schema>
