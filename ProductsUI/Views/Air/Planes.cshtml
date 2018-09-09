@@ -1,0 +1,72 @@
+﻿@model IEnumerable<ProductsUI.Models.AirProduct>
+
+@{
+    ViewBag.Title = "Planes";
+}
+
+<h2>Planes</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Departure)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Arrival)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Booked)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Saved)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Departure)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Arrival)
+            </td>
+            <td>
+                @{ if (item.Booked == false)
+                    {
+                        @Html.ActionLink("Book", "Book", new { id = item.ID });
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Unbook", "Book", new { id = item.ID });
+                    }
+                }
+
+            </td>
+            <td>
+                @{ if (item.Saved == false)
+                    {
+                        @Html.ActionLink("Save", "Save", new { id = item.ID });
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Unsave", "Save", new { id = item.ID });
+                    }
+                }
+            </td>
+        </tr>
+    }
+
+</table>
