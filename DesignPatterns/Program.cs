@@ -19,6 +19,17 @@ namespace DesignPatterns
                 IProduct selected =  ProductFactory.GetProductType(productType);
                 Product product = new Product(selected);
                 product.DisplayList();
+                Console.WriteLine("Enter ID to save");
+                int id;
+                int.TryParse(Console.ReadLine(), out id);
+                try
+                {
+                    product.Save(id);
+                }
+                catch(Exception exc)
+                {
+                    Console.WriteLine(exc.StackTrace);
+                }
                 flag = false;
             }
             Console.ReadKey();

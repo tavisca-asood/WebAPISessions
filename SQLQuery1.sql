@@ -30,6 +30,12 @@ insert into HotelProducts values('IBIS','Kharadi',4.2,5000,0)
 insert into HotelProducts values('The Taj','Amanaora',4.9,12000,0)
 insert into HotelProducts values('Trident','Vadgaon',4.7,11000,0)
 
+alter table ActivityProducts Add Saved bit NOT NULL DEFAULT(0)
+alter table AirProducts Add Saved bit NOT NULL DEFAULT(0)
+alter table CarProducts Add Saved bit NOT NULL DEFAULT(0)
+alter table HotelProducts Add Saved bit NOT NULL DEFAULT(0)
+
+
 --select * from AirProducts
 --select * from ActivityProducts
 --select * from CarProducts

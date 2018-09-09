@@ -9,6 +9,7 @@ namespace DesignPatterns
     class SQLServer : IRepository
     {
         static InventoryDatabaseEntities inventory = new InventoryDatabaseEntities();
+        static ProductsEntities products = new ProductsEntities();
         public void Save(IRepository product)
         {
             throw new NotImplementedException();
@@ -28,6 +29,18 @@ namespace DesignPatterns
         public static List<HotelProduct> Hotels()
         {
             return inventory.HotelProducts.ToList();
+        }
+        public static void SaveActivity(ActivityProduct activity)
+        {
+            SavedProduct product = new SavedProduct()
+            {
+                Name = activity.Name,
+                Booked = activity.Booked,
+                Price = activity.Price,
+                TypeOfProduct = "Activity"
+            };
+            products.SavedProducts.Add(product);
+            products.SaveChanges();
         }
     }
 }

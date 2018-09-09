@@ -12,26 +12,12 @@ namespace DesignPatterns
     using System;
     using System.Collections.Generic;
     
-    public partial class ActivityProduct:IProduct
+    public partial class SavedProduct
     {
         public int ID { get; set; }
+        public string TypeOfProduct { get; set; }
         public string Name { get; set; }
         public Nullable<double> Price { get; set; }
-        public Nullable<System.TimeSpan> StartTime { get; set; }
-        public bool Booked { get; set; }
-
-        public void Book()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Save()
-        {
-        }
-
-        public string TypeOfProduct()
-        {
-            throw new NotImplementedException();
-        }
+        public Nullable<bool> Booked { get; set; }
     }
 }

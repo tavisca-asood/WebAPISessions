@@ -19,7 +19,7 @@ namespace DesignPatterns
         public Nullable<double> Price { get; set; }
         public bool Booked { get; set; }
 
-        public void Book()
+        public void Book(int id)
         {
             throw new NotImplementedException();
         }

@@ -85,6 +85,24 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Logger.cs" />
+    <Compile Include="SavedProduct.cs">
+      <DependentUpon>SavedProductsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SavedProductsModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SavedProductsModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SavedProductsModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SavedProductsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SavedProductsModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SavedProductsModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="SQLServer.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -99,6 +117,13 @@
       <DependentUpon>InventoryDatabaseEntities.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <EntityDeploy Include="SavedProductsModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SavedProductsModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="SavedProductsModel.edmx.diagram">
+      <DependentUpon>SavedProductsModel.edmx</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -113,6 +138,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>InventoryDatabaseEntities.edmx</DependentUpon>
       <LastGenOutput>InventoryDatabaseEntities.cs</LastGenOutput>
+    </Content>
+    <Content Include="SavedProductsModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SavedProductsModel.edmx</DependentUpon>
+      <LastGenOutput>SavedProductsModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="SavedProductsModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SavedProductsModel.edmx</DependentUpon>
+      <LastGenOutput>SavedProductsModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

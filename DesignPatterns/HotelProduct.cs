@@ -26,7 +26,7 @@ namespace DesignPatterns
             throw new NotImplementedException();
         }
 
-        public void Save()
+        public void Save(int id)
         {
             throw new NotImplementedException();
         }
