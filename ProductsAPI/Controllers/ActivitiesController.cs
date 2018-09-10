@@ -12,15 +12,15 @@ namespace ProductsAPI.Controllers
     public class ActivitiesController : ApiController
     {
         // GET: api/Activity
-        public IEnumerable<ActivityProduct> Get()
+        public List<ActivityProduct> Get()
         {
             return SQLServer.Instance.GetActivities();
         }
 
-        // GET: api/Activity/5
+        //GET: api/Activity/5
         public ActivityProduct Get(int id)
         {
-            return SQLServer.Instance.GetActivities().Find(x=>x.ID==id);
+            return SQLServer.Instance.GetActivities().Find(x => x.ID == id);
         }
 
         // POST: api/Activity
@@ -43,5 +43,16 @@ namespace ProductsAPI.Controllers
         public void Delete(int id)
         {
         }
+
+        //public List<IProduct> CalculateFare(IEnumerable<IProduct> products)
+        //{
+        //    IEnumerable<IProduct> activities = products.ToList().ConvertAll(x => new ActivityProduct((ActivityProduct)x));
+
+        //    foreach(ActivityProduct activity in activities)
+        //    {
+        //        activity.Price += (activity.Price * 10) / 100;
+        //    }
+        //    return activities.ToList();
+        //}
     }
 }

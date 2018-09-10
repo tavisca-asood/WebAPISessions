@@ -3,6 +3,20 @@
 @{
     ViewBag.Title = "Planes";
 }
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+            <li>@Html.ActionLink("Activities", "Index", "Activity")</li>
+            <li>@Html.ActionLink("Air", "Index", "Air")</li>
+            <li>@Html.ActionLink("Cars", "Index", "Car")</li>
+            <li>@Html.ActionLink("Hotels", "Index", "Hotel")</li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li>@Html.ActionLink("Booked", "Index", "Booked")</li>
+            <li>@Html.ActionLink("Saved", "Index", "Saved")</li>
+        </ul>
+    </div>
+</nav>
 
 <h2>Planes</h2>
 <table class="table">
@@ -50,7 +64,7 @@
                     }
                     else
                     {
-                        @Html.ActionLink("Unbook", "Book", new { id = item.ID });
+                        @Html.ActionLink("Booked", "Book", new { id = item.ID });
                     }
                 }
 
@@ -62,11 +76,13 @@
                     }
                     else
                     {
-                        @Html.ActionLink("Unsave", "Save", new { id = item.ID });
+                        @Html.ActionLink("Saved", "Save", new { id = item.ID });
                     }
                 }
             </td>
         </tr>
     }
-
 </table>
+<div>
+    @Html.ActionLink("Back to List", "Index", "User")
+</div>

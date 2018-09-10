@@ -12,30 +12,39 @@ namespace ProductsAPI.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class HotelProduct : IProduct
+    public partial class HotelProduct:IProduct
     {
         public int ID { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
         public double Rating { get; set; }
         public double Price { get; set; }
+        public System.DateTime Date { get; set; }
         public bool Booked { get; set; }
         public bool Saved { get; set; }
 
-        public void Book()
+        public bool Book()
         {
             if (Booked == true)
+            {
                 Booked = false;
+                return false;
+            }
             else
                 Booked = true;
+            return true;
         }
 
-        public void Save()
+        public bool Save()
         {
             if (Saved == true)
+            {
                 Saved = false;
+                return false;
+            }
             else
                 Saved = true;
+            return true;
         }
     }
 }

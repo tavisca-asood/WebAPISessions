@@ -8,7 +8,7 @@ namespace ProductsAPI
 {
     public interface IProduct
     {
-        void Book();
-        void Save();
+        bool Book();
+        bool Save();
     }
 }

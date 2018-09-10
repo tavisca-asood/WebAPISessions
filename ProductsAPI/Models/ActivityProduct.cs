@@ -18,23 +18,47 @@ namespace ProductsAPI.Models
         public string Name { get; set; }
         public double Price { get; set; }
         public System.TimeSpan StartTime { get; set; }
+        public System.DateTime Date { get; set; }
         public bool Booked { get; set; }
         public bool Saved { get; set; }
 
-        public void Book()
+        public bool Book()
         {
             if (Booked == true)
+            {
                 Booked = false;
+                return false;
+            }
             else
                 Booked = true;
+            return true;
         }
 
-        public void Save()
+        public bool Save()
         {
             if (Saved == true)
+            {
                 Saved = false;
+                return false;
+            }
             else
                 Saved = true;
+            return true;
+        }
+
+        public ActivityProduct()
+        {
+
+        }
+        public ActivityProduct(ActivityProduct product)
+        {
+            this.ID = product.ID;
+            this.Name = product.Name;
+            this.Date = product.Date;
+            this.Price = product.Price;
+            this.StartTime = product.StartTime;
+            this.Booked = product.Booked;
+            this.Saved = product.Saved;
         }
     }
 }

@@ -2,6 +2,7 @@
 using ProductsUI.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -12,11 +13,13 @@ namespace ProductsUI.Controllers
 {
     public class AirController : Controller
     {
-        private string _url = "http://localhost:49348/";
+        private string _url = ConfigurationManager.AppSettings["apiUrl"];
         // GET: Air
         public ActionResult Index()
         { 
             List<AirProduct> planes = GetPlanes();
+            if (planes == null)
+                RedirectToAction("Index", "User");
             return View("~/Views/Air/planes.cshtml", planes);
         }
         
@@ -44,12 +47,11 @@ namespace ProductsUI.Controllers
             {
                 // TODO: Add insert logic here
                 PostPlane(collection);
-                return RedirectToAction("Index");
             }
             catch
             {
-                return View("~/Views/Air/AddPlane.cshtml");
             }
+            return RedirectToAction("Add");
         }
 
         private List<AirProduct> GetPlanes()

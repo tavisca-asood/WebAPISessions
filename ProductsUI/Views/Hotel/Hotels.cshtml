@@ -3,6 +3,20 @@
 @{
     ViewBag.Title = "Hotels";
 }
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+            <li>@Html.ActionLink("Activities", "Index", "Activity")</li>
+            <li>@Html.ActionLink("Air", "Index", "Air")</li>
+            <li>@Html.ActionLink("Cars", "Index", "Car")</li>
+            <li>@Html.ActionLink("Hotels", "Index", "Hotel")</li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li>@Html.ActionLink("Booked", "Index", "Booked")</li>
+            <li>@Html.ActionLink("Saved", "Index", "Saved")</li>
+        </ul>
+    </div>
+</nav>
 
 <h2>Hotels</h2>
 <table class="table">
@@ -20,6 +34,9 @@
             @Html.DisplayNameFor(model => model.Price)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Booked)
         </th>
         <th>
@@ -30,43 +47,50 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rating)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @{ if (item.Booked == false)
-                    {
-                        @Html.ActionLink("Book", "Book", new { id = item.ID });
-                    }
-                    else
-                    {
-                        @Html.ActionLink("Unbook", "Book", new { id = item.ID });
-                    }
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rating)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @{ if (item.Booked == false)
+                {
+                    @Html.ActionLink("Book", "Book", new { id = item.ID });
                 }
+                else
+                {
+                    @Html.ActionLink("Booked", "Book", new { id = item.ID });
+                }
+            }
 
-            </td>
-            <td>
-                @{ if (item.Saved == false)
-                    {
-                        @Html.ActionLink("Save", "Save", new { id = item.ID });
-                    }
-                    else
-                    {
-                        @Html.ActionLink("Unsave", "Save", new { id = item.ID });
-                    }
+        </td>
+        <td>
+            @{ if (item.Saved == false)
+                {
+                    @Html.ActionLink("Save", "Save", new { id = item.ID });
                 }
-            </td>
-        </tr>
+                else
+                {
+                    @Html.ActionLink("Saved", "Save", new { id = item.ID });
+                }
+            }
+        </td>
+    </tr>
     }
 
 </table>
+
+<div>
+    @Html.ActionLink("Back to List", "Index", "User")
+</div>

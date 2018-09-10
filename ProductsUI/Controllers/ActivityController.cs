@@ -3,6 +3,7 @@ using Newtonsoft.Json.Linq;
 using ProductsUI.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -15,11 +16,13 @@ namespace ProductsUI.Controllers
 {
     public class ActivityController : Controller
     {
-        string _url = "http://localhost:49348/";
+        private string _url = ConfigurationManager.AppSettings["apiUrl"];
         // GET: Activity
         public ActionResult Index()
         {
             List<ActivityProduct> activities = GetActivities();
+            if (activities == null)
+                RedirectToAction("Index", "User");
             return View("~/Views/Activity/Activities.cshtml", activities);
         }
 
@@ -49,12 +52,11 @@ namespace ProductsUI.Controllers
             {
                 // TODO: Add insert logic here
                 PostActivity(collection);
-                return RedirectToAction("Index");
             }
             catch
             {
-                return View("~/Views/Activity/AddActivity.cshtml");
             }
+            return RedirectToAction("Add");
         }
 
         private List<ActivityProduct> GetActivities()

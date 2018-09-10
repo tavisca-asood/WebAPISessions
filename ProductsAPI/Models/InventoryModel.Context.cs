@@ -29,5 +29,7 @@ namespace ProductsAPI.Models
         public virtual DbSet<AirProduct> AirProducts { get; set; }
         public virtual DbSet<CarProduct> CarProducts { get; set; }
         public virtual DbSet<HotelProduct> HotelProducts { get; set; }
+        public virtual DbSet<Booked> Bookeds { get; set; }
+        public virtual DbSet<Saved> Saveds { get; set; }
     }
 }

@@ -11,7 +11,7 @@ namespace ProductsAPI.Models
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class AirProduct : IProduct
     {
         public int ID { get; set; }
@@ -22,20 +22,28 @@ namespace ProductsAPI.Models
         public bool Booked { get; set; }
         public bool Saved { get; set; }
 
-        public void Book()
+        public bool Book()
         {
             if (Booked == true)
+            {
                 Booked = false;
+                return false;
+            }
             else
                 Booked = true;
+            return true;
         }
 
-        public void Save()
+        public bool Save()
         {
             if (Saved == true)
+            {
                 Saved = false;
+                return false;
+            }
             else
                 Saved = true;
+            return true;
         }
     }
 }

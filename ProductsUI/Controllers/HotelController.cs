@@ -2,6 +2,7 @@
 using ProductsUI.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -13,7 +14,7 @@ namespace ProductsUI.Controllers
     public class HotelController : Controller
     {
         // GET: Hotel
-        private string _url = "http://localhost:49348/";
+        private string _url = ConfigurationManager.AppSettings["apiUrl"];
         // GET: Air
         public ActionResult Index()
         {
@@ -45,12 +46,11 @@ namespace ProductsUI.Controllers
             {
                 // TODO: Add insert logic here
                 PostHotel(collection);
-                return RedirectToAction("Index");
             }
             catch
             {
-                return View("~/Views/Hotel/AddHotel.cshtml");
             }
+            return RedirectToAction("Add");
         }
 
         private List<HotelProduct> GetHotels()

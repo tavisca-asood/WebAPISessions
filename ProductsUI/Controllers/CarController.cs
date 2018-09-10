@@ -2,6 +2,7 @@
 using ProductsUI.Models;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -13,7 +14,7 @@ namespace ProductsUI.Controllers
     public class CarController : Controller
     {
         // GET: Car
-        private string _url = "http://localhost:49348/";
+        private string _url = ConfigurationManager.AppSettings["apiUrl"];
         // GET: Air
         public ActionResult Index()
         {
@@ -45,12 +46,11 @@ namespace ProductsUI.Controllers
             {
                 // TODO: Add insert logic here
                 PostCar(collection);
-                return RedirectToAction("Index");
             }
             catch
             {
-                return View("~/Views/Car/AddCar.cshtml");
             }
+            return RedirectToAction("Add");
         }
 
         private List<CarProduct> GetCars()

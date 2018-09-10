@@ -61,43 +61,163 @@ namespace ProductsAPI
         }
         public void BookActivity(int id)
         {
-            products.ActivityProducts.ToList().Find(x => x.ID == id).Book();
+            ActivityProduct current = products.ActivityProducts.ToList().Find(x => x.ID == id);
+            if (current.Book())
+            {
+                products.Bookeds.Add(new Booked()
+                {
+                    Name = current.Name,
+                    Price = current.Price,
+                    Date = current.Date
+                });
+            }
+            else
+            {
+                Booked booked = products.Bookeds.ToList().Find(x => x.Name == current.Name && x.Date == current.Date);
+                products.Bookeds.Remove(booked);
+            }
             products.SaveChanges();
         }
         public void SaveActivity(int id)
         {
-            products.ActivityProducts.ToList().Find(x => x.ID == id).Save();
+            ActivityProduct current = products.ActivityProducts.ToList().Find(x => x.ID == id);
+            if (current.Save())
+            {
+                products.Saveds.Add(new Saved()
+                {
+                    Name = current.Name,
+                    Price = current.Price,
+                    Date = current.Date
+                });
+            }
+            else
+            {
+                Saved saved = products.Saveds.ToList().Find(x => x.Name.Equals(current.Name) && x.Date == current.Date);
+                products.Saveds.Remove(saved);
+            }
             products.SaveChanges();
         }
         public void BookPlane(int id)
         {
-            products.AirProducts.ToList().Find(x => x.ID == id).Book();
+            AirProduct current = products.AirProducts.ToList().Find(x => x.ID == id);
+            if (current.Book())
+            {
+                products.Bookeds.Add(new Booked()
+                {
+                    Name = current.Name,
+                    Price = current.Price,
+                    Date = current.Departure
+                });
+            }
+            else
+            {
+                Booked booked = products.Bookeds.ToList().Find(x => x.Name == current.Name && x.Date == current.Departure);
+                products.Bookeds.Remove(booked);
+            }
             products.SaveChanges();
         }
         public void SavePlane(int id)
         {
-            products.AirProducts.ToList().Find(x => x.ID == id).Save();
+            AirProduct current = products.AirProducts.ToList().Find(x => x.ID == id);
+            if (current.Save())
+            {
+                products.Saveds.Add(new Saved()
+                {
+                    Name = current.Name,
+                    Price = current.Price,
+                    Date = current.Departure
+                });
+            }
+            else
+            {
+                Saved saved = products.Saveds.ToList().Find(x => x.Name==current.Name && x.Date == current.Departure );
+                products.Saveds.Remove(saved);
+            }
             products.SaveChanges();
         }
         public void BookCar(int id)
         {
-            products.CarProducts.ToList().Find(x => x.ID == id).Book();
+            CarProduct current = products.CarProducts.ToList().Find(x => x.ID == id);
+            if (current.Book())
+            {
+                products.Bookeds.Add(new Booked()
+                {
+                    Name = current.Name,
+                    Price = current.Price,
+                    Date = current.Date
+                });
+            }
+            else
+            {
+                Booked booked = products.Bookeds.ToList().Find(x => x.Name == current.Name && x.Date == current.Date);
+                products.Bookeds.Remove(booked);
+            }
             products.SaveChanges();
         }
         public void SaveCar(int id)
         {
-            products.CarProducts.ToList().Find(x => x.ID == id).Save();
+            CarProduct current = products.CarProducts.ToList().Find(x => x.ID == id);
+            if (current.Save())
+            {
+                products.Saveds.Add(new Saved()
+                {
+                    Name = current.Name,
+                    Price = current.Price,
+                    Date = current.Date
+                });
+            }
+            else
+            {
+                Saved saved = products.Saveds.ToList().Find(x => x.Name.Equals(current.Name) && x.Date == current.Date);
+                products.Saveds.Remove(saved);
+            }
             products.SaveChanges();
         }
         public void BookHotel(int id)
         {
-            products.HotelProducts.ToList().Find(x => x.ID == id).Book();
+            HotelProduct current = products.HotelProducts.ToList().Find(x => x.ID == id);
+            if (current.Book())
+            {
+                products.Bookeds.Add(new Booked()
+                {
+                    Name = current.Name,
+                    Price = current.Price,
+                    Date = current.Date
+                });
+            }
+            else
+            {
+                Booked booked = products.Bookeds.ToList().Find(x => x.Name == current.Name && x.Date == current.Date);
+                products.Bookeds.Remove(booked);
+            }
             products.SaveChanges();
         }
         public void SaveHotel(int id)
         {
-            products.HotelProducts.ToList().Find(x => x.ID == id).Save();
+            HotelProduct current = products.HotelProducts.ToList().Find(x => x.ID == id);
+            if (current.Save())
+            {
+                products.Saveds.Add(new Saved()
+                {
+                    Name = current.Name,
+                    Price = current.Price,
+                    Date = current.Date
+                });
+            }
+            else
+            {
+                Saved saved = products.Saveds.ToList().Find(x => x.Name.Equals(current.Name) && x.Date == current.Date);
+                products.Saveds.Remove(saved);
+            }
             products.SaveChanges();
+        }
+        public IEnumerable<Saved> GetSaved()
+        {
+            return products.Saveds.ToList();
+        }
+        public IEnumerable<Booked> GetBooked()
+        {
+            return products.Bookeds.ToList();
         }
     }
 }
