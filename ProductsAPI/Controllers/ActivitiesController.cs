@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using Newtonsoft.Json.Linq;
 using ProductsAPI.Models;
@@ -14,7 +11,7 @@ namespace ProductsAPI.Controllers
         // GET: api/Activity
         public List<ActivityProduct> Get()
         {
-            return SQLServer.Instance.GetActivities();
+            return CachingDecorator.Get("Activities").Cast<ActivityProduct>().ToList() ;
         }
 
         //GET: api/Activity/5
@@ -27,6 +24,7 @@ namespace ProductsAPI.Controllers
         public void Post(ActivityProduct activity)
         {
             SQLServer.Instance.AddActivity(activity);
+            CachingDecorator.Update("Activities");
         }
 
         // PUT: api/Activity/5
@@ -37,6 +35,7 @@ namespace ProductsAPI.Controllers
                 SQLServer.Instance.BookActivity(id);
             else if (value.Equals("save"))
                 SQLServer.Instance.SaveActivity(id);
+            CachingDecorator.Update("Activities");
         }
 
         // DELETE: api/Activity/5

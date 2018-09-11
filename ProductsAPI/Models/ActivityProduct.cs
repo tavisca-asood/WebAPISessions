@@ -11,7 +11,7 @@ namespace ProductsAPI.Models
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class ActivityProduct:IProduct
     {
         public int ID { get; set; }
@@ -44,21 +44,6 @@ namespace ProductsAPI.Models
             else
                 Saved = true;
             return true;
-        }
-
-        public ActivityProduct()
-        {
-
-        }
-        public ActivityProduct(ActivityProduct product)
-        {
-            this.ID = product.ID;
-            this.Name = product.Name;
-            this.Date = product.Date;
-            this.Price = product.Price;
-            this.StartTime = product.StartTime;
-            this.Booked = product.Booked;
-            this.Saved = product.Saved;
         }
     }
 }

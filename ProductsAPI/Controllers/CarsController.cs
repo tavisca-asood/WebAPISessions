@@ -14,7 +14,7 @@ namespace ProductsAPI.Controllers
         // GET: api/Car
         public IEnumerable<CarProduct> Get()
         {
-            return SQLServer.Instance.GetCars().ToList();
+            return CachingDecorator.Get("Cars").Cast<CarProduct>().ToList();
         }
 
         // GET: api/Car/5
@@ -27,6 +27,7 @@ namespace ProductsAPI.Controllers
         public void Post(CarProduct car)
         {
             SQLServer.Instance.AddCar(car);
+            CachingDecorator.Update("Cars");
         }
 
         // PUT: api/Car/5
@@ -37,6 +38,7 @@ namespace ProductsAPI.Controllers
                 SQLServer.Instance.BookCar(id);
             else if (value.Equals("save"))
                 SQLServer.Instance.SaveCar(id);
+            CachingDecorator.Update("Cars");
         }
 
         // DELETE: api/Car/5

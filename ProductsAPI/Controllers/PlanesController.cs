@@ -14,7 +14,7 @@ namespace ProductsAPI.Controllers
         // GET: api/Air
         public IEnumerable<AirProduct> Get()
         {
-            return SQLServer.Instance.GetPlanes().ToList();
+            return CachingDecorator.Get("Air").Cast<AirProduct>().ToList();
         }
 
         // GET: api/Air/5
@@ -27,6 +27,7 @@ namespace ProductsAPI.Controllers
         public void Post(AirProduct plane)
         {
             SQLServer.Instance.AddPlane(plane);
+            CachingDecorator.Update("Air");
         }
 
         // PUT: api/Air/5
@@ -37,6 +38,7 @@ namespace ProductsAPI.Controllers
                 SQLServer.Instance.BookPlane(id);
             else if (value.Equals("save"))
                 SQLServer.Instance.SavePlane(id);
+            CachingDecorator.Update("Air");
         }
 
         // DELETE: api/Air/5

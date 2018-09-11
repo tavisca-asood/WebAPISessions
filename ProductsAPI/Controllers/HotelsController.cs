@@ -14,7 +14,7 @@ namespace ProductsAPI.Controllers
         // GET: api/Hotel
         public IEnumerable<HotelProduct> Get()
         {
-            return SQLServer.Instance.GetHotels().ToList();
+            return CachingDecorator.Get("Hotels").Cast<HotelProduct>().ToList();
         }
 
         // GET: api/Hotel/5
@@ -27,6 +27,7 @@ namespace ProductsAPI.Controllers
         public void Post(HotelProduct hotel)
         {
             SQLServer.Instance.AddHotel(hotel);
+            CachingDecorator.Update("Hotels");
         }
 
         // PUT: api/Hotel/5
@@ -37,6 +38,7 @@ namespace ProductsAPI.Controllers
                 SQLServer.Instance.BookHotel(id);
             else if (value.Equals("save"))
                 SQLServer.Instance.SaveHotel(id);
+            CachingDecorator.Update("Hotels");
         }
 
         // DELETE: api/Hotel/5
