@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "User";
+}
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav navbar-right">
+            <li>@Html.ActionLink("Booked", "Index", "Booked")</li>
+            <li>@Html.ActionLink("Saved", "Index", "Saved")</li>
+        </ul>
+    </div>
+</nav>
+
+<h2>User</h2>
+
+@Html.ActionLink("Activity", "Activity")
+<br />
+@Html.ActionLink("Air", "Air")
+<br />
+@Html.ActionLink("Car", "Car")
+<br />
+@Html.ActionLink("Hotel", "Hotel")

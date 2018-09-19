@@ -1,0 +1,53 @@
+﻿@model IEnumerable<ProductsUI.Models.Booked>
+
+@{
+    ViewBag.Title = "Booked";
+}
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+            <li>@Html.ActionLink("Activities", "Index", "Activity")</li>
+            <li>@Html.ActionLink("Air", "Index", "Air")</li>
+            <li>@Html.ActionLink("Cars", "Index", "Car")</li>
+            <li>@Html.ActionLink("Hotels", "Index", "Hotel")</li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li>@Html.ActionLink("Booked", "Index", "Booked")</li>
+            <li>@Html.ActionLink("Saved", "Index", "Saved")</li>
+        </ul>
+    </div>
+</nav>
+
+<h2>Booked</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+        </tr>
+    }
+
+    @Html.ActionLink("Back to List", "Index", "User")
+
+</table>
